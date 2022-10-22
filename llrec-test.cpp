@@ -2,6 +2,7 @@
 #include <fstream>
 #include <functional>
 #include "llrec.h"
+#include "llrec.cpp"
 using namespace std;
 
 /**
@@ -68,6 +69,22 @@ void dealloc(Node* head)
 // -----------------------------------------------
 
 
+bool isOdd(int num);
+
+bool isOdd(int num){
+	if(num % 2 == 0){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+}
+
+bool isLessThan(int num);
+
+bool isLessThan10(int num){
+	return num < 10;
+}
 
 
 
@@ -84,12 +101,25 @@ int main(int argc, char* argv[])
     Node* head = readList(argv[1]);
     cout << "Original list: ";
     print(head);
+		
+// TEST FOR PART 1
+    // int pivot = 6;
+    // Node* smaller;
+    // Node* larger;
 
-    // Test out your linked list code
+    // llpivot(head, smaller, larger, pivot);
 
+    // cout << "Smaller list: ";
+    // print(smaller);
+    // cout << endl;
 
-
+    // cout << "Larger list: ";
+    // print(larger);
+    // cout << endl;
     
-    return 0;
+// TEST FOR PART 2
+		cout << "Filtered list: ";
+		print(llfilter(head, isLessThan10));
 
+    return 0;
 }
